@@ -1,0 +1,33 @@
+.header {
+  background-color: #333;
+  color: white;
+  padding: 1rem 0;
+  width: 100%;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.navItem {
+  margin: 0 1rem;
+}
+
+.navItem a {
+  color: white;
+  text-decoration: none;
+}
+
+.navTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
