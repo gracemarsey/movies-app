@@ -2,6 +2,8 @@ import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
 interface CounterState {
+  username?: string;
+  setUsername: (username: string) => void;
   searches: string[];
   addSearch: (search: string) => void;
   removeSearch: (search: string) => void;
@@ -10,6 +12,8 @@ interface CounterState {
 export const useCounterStore = create<CounterState>()(
   persist(
     (set) => ({
+      username: undefined,
+      setUsername: (username: string) => set({ username }),
       searches: [],
       addSearch: (search: string) =>
         set((state) => ({
