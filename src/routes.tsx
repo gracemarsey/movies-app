@@ -9,7 +9,9 @@ import AboutPage from './pages/About';
 // Create a root route
 const rootRoute = createRootRoute({
   component: () => (
-    <div style={{ minWidth: '100vw', minHeight: '100vh' }}>
+    <div
+      style={{ minWidth: '100vw', minHeight: '100vh', display: 'flex', alignItems: 'center', flexDirection: 'column' }}
+    >
       <Header />
       <Outlet /> {/* This is where nested routes will render */}
     </div>

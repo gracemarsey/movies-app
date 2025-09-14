@@ -1,11 +1,7 @@
-import styles from "./index.module.css";
+import styles from './index.module.css';
 
 const HomePage = () => {
-  return (
-    <div>
-      Hello World
-    </div>
-  )
-}
+  return <div className={styles.mainContainer}></div>;
+};
 
-export default HomePage
+export default HomePage;

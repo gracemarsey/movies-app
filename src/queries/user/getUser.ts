@@ -1,8 +1,18 @@
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import { apiRequest } from '../utils';
 
+interface UserSuccessResponse {
+  username: string;
+}
+
+interface UserErrorResponse {
+  error: string;
+}
+
+export type UserResponse = UserSuccessResponse | UserErrorResponse;
+
 export const getUser = async (username: string) => {
-  const response = apiRequest<{ username: string }>(`/users/${username}`, {
+  const response = apiRequest<UserResponse>(`/users/${username}`, {
     method: 'GET',
   });
 
@@ -14,5 +24,14 @@ export const useGetUser = (username: string) => {
     queryKey: ['user', username],
     queryFn: () => getUser(username),
     enabled: !!username, // Only run the query if username is provided
+  });
+};
+
+export const usePostUser = (onSuccess: (data: UserResponse) => void, onError: (error: Error) => void) => {
+  const postUser = async (username: string) => getUser(username);
+  return useMutation({
+    mutationFn: postUser,
+    onSuccess,
+    onError,
   });
 };

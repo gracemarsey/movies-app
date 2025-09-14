@@ -7,9 +7,11 @@ interface InputProps {
   setValue: (value: string) => void;
   type?: string;
   name?: string;
+  onFocus?: () => void;
+  onBlur?: () => void;
 }
 
-const Input: React.FC<InputProps> = ({ type = 'text', placeholder, value, setValue, name }) => {
+const Input: React.FC<InputProps> = ({ type = 'text', placeholder, value, setValue, name, onFocus, onBlur }) => {
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
   };
@@ -22,6 +24,8 @@ const Input: React.FC<InputProps> = ({ type = 'text', placeholder, value, setVal
       onChange={onChange}
       className={styles.input}
       name={name}
+      onFocus={onFocus}
+      onBlur={onBlur}
     />
   );
 };
