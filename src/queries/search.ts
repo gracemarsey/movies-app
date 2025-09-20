@@ -6,6 +6,7 @@ interface SearchSuccessResponse {
   Runtime: string;
   Poster: string;
   imdbRating: string;
+  Year: string;
 }
 
 interface SearchErrorResponse {
